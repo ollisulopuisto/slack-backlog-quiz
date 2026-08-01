@@ -1,0 +1,29 @@
+/node_modules
+/.next
+/out
+/build
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+
+# Everything mined from a real Slack export. These describe actual people and
+# actual conversations: they belong in a private repo, never this one.
+/archive_facts.json
+/archive_chronology.json
+/archive_social.json
+/archive_swearing.json
+/archive_records.json
+/archive_gaps.json
+/archive_candidates.json
+/image_candidates.json
+/image_catalog.json
+/image_metadata.json
+/backlog_summary.json
+
+# The live room, its scores and its decks.
+/data/
+
+# Uploaded pictures pulled out of the export.
+/public/quiz_images/*
+!/public/quiz_images/.gitkeep

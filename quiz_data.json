@@ -1,0 +1,79 @@
+[
+  {
+    "id": "lobby",
+    "type": "lobby",
+    "title": "Slack Backlog Quiz",
+    "subtitle": "Liity peliin puhelimella syöttämällä nimimerkkisi!",
+    "instructions": "Esimerkkipakka. Korvaa omilla kysymyksilläsi /editor-näkymässä."
+  },
+  {
+    "id": 1,
+    "type": "multiple_choice",
+    "category": "Esimerkki",
+    "question": "Mihin kellonaikaan tässä ryhmässä kirjoitetaan eniten?",
+    "options": [
+      "klo 10",
+      "klo 14",
+      "klo 20",
+      "klo 03"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Louhi oma vastauksesi: mine_archive.py laskee tämän arkistostasi.",
+    "points": 1
+  },
+  {
+    "id": 2,
+    "type": "slider",
+    "category": "Esimerkki",
+    "question": "Kuinka monta viestiä arkistossa on?",
+    "min": 0,
+    "max": 100000,
+    "step": 500,
+    "correctValue": 42000,
+    "unit": "viestiä",
+    "explanation": "Liukusäädin pisteyttää sen mukaan miten lähelle arvaus osui.",
+    "points": 1
+  },
+  {
+    "id": 3,
+    "type": "connect_pairs",
+    "category": "Esimerkki",
+    "question": "Yhdistä kanava ja sen perustamisvuosi.",
+    "pairs": [
+      {
+        "left": "#general",
+        "right": "2016"
+      },
+      {
+        "left": "#random",
+        "right": "2019"
+      },
+      {
+        "left": "#links",
+        "right": "2021"
+      },
+      {
+        "left": "#pets",
+        "right": "2024"
+      }
+    ],
+    "explanation": "Neljän parin tehtävästä saa 0,25 pistettä per oikea pari.",
+    "points": 1
+  },
+  {
+    "id": 4,
+    "type": "open_ended",
+    "category": "Esimerkki",
+    "question": "Täydennä: ”Tämä on esimerkki ________.”",
+    "correctAnswerText": "kysymyksestä",
+    "hint": "Yksi sana.",
+    "explanation": "Avokysymykset pisteyttää juontaja, 0–3 pistettä.",
+    "points": 3
+  },
+  {
+    "id": "scoreboard",
+    "type": "scoreboard",
+    "title": "Palkintogaala",
+    "subtitle": "Kiitos pelaamisesta!"
+  }
+]
