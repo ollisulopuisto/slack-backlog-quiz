@@ -4,8 +4,8 @@ import { wifiQrPayload } from "./wifi";
 
 describe("wifiQrPayload", () => {
   it("writes the payload a phone camera understands", () => {
-    expect(wifiQrPayload({ ssid: "example-network", password: "not-a-real-password" })).toBe(
-      "WIFI:T:WPA;S:example-network;P:not-a-real-password;;"
+    expect(wifiQrPayload({ ssid: "test-network", password: "correct-horse-battery-staple" })).toBe(
+      "WIFI:T:WPA;S:test-network;P:correct-horse-battery-staple;;"
     );
   });
 
