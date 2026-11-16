@@ -1,5 +1,6 @@
 "use client";
 import { formatScore, slideMaxPoints } from "@/lib/scoring";
+import { guardIme } from "@/lib/imeEnterGuard";
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
@@ -396,9 +397,9 @@ export default function SummaryPage() {
                               handleScoreChange(slide.id, player.id, parsed);
                             }
                           }}
-                          onKeyDown={(e) => {
+                          onKeyDown={guardIme((e: React.KeyboardEvent<HTMLInputElement>) => {
                             if (e.key === "Enter") e.currentTarget.blur();
-                          }}
+                          })}
                           title="Kirjoita pisteet ja paina Enter tai siirry pois kentästä"
                           style={{
                             width: "60px",
