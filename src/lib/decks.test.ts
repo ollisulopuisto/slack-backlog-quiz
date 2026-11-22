@@ -30,6 +30,15 @@ function room(players: Player[], extra: Partial<RoomState> = {}): RoomState {
 }
 
 describe("deckIdFor", () => {
+  it("trims dashes and stays fast on a long run of separators", () => {
+    expect(deckIdFor("--Testi!!--", [])).toBe("testi");
+    expect(deckIdFor("!!!", ["pakka-1"])).toBe("pakka-2");
+    const hostile = "a" + "-".repeat(200_000) + "!";
+    const started = Date.now();
+    expect(deckIdFor(hostile, [])).toBe("a");
+    expect(Date.now() - started).toBeLessThan(1000);
+  });
+
   it("slugifies a Finnish name", () => {
     expect(deckIdFor("Lämmittelykierros", [])).toBe("lammittelykierros");
   });
