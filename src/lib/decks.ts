@@ -39,6 +39,15 @@ export interface SavedGame {
 
 const SLUG_MAX = 40;
 
+/** Strips leading and trailing "-" in linear time (a `-+$` regex is quadratic on long runs). */
+function trimDashes(value: string): string {
+  let start = 0;
+  let end = value.length;
+  while (start < end && value[start] === "-") start++;
+  while (end > start && value[end - 1] === "-") end--;
+  return value.slice(start, end);
+}
+
 /**
  * A readable, stable id for a deck name.
  *
@@ -48,16 +57,16 @@ const SLUG_MAX = 40;
  */
 export function deckIdFor(name: string, taken: string[]): string {
   const base =
-    name
+    trimDashes(
+      name
       .toLowerCase()
       .replace(/ä/g, "a")
       .replace(/ö/g, "o")
       .replace(/å/g, "a")
       .normalize("NFD")
       .replace(/[̀-ͯ]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "")
-      .slice(0, SLUG_MAX) || `pakka-${taken.length + 1}`;
+      .replace(/[^a-z0-9]+/g, "-"),
+    ).slice(0, SLUG_MAX) || `pakka-${taken.length + 1}`;
 
   if (!taken.includes(base)) return base;
   for (let n = 2; ; n++) {
